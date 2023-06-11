@@ -28,243 +28,236 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.songTitleTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lyricsTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.browseDirectoryButton = new System.Windows.Forms.Button();
-            this.outputDirectoryTextBox = new System.Windows.Forms.TextBox();
-            this.Generate = new System.Windows.Forms.Button();
-            this.linePerSlideNumber = new System.Windows.Forms.NumericUpDown();
-            this.VersionLabel = new System.Windows.Forms.Label();
-            this.autoTranslateCheckBox = new System.Windows.Forms.CheckBox();
-            this.lineBreaksBetweenTranslationNumber = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.bracketBetweenTranslationCheckBox = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.linePerSlideNumber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lineBreaksBetweenTranslationNumber)).BeginInit();
-            this.SuspendLayout();
+            label1 = new Label();
+            songTitleTextBox = new TextBox();
+            label2 = new Label();
+            lyricsTextBox = new TextBox();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            folderBrowserDialog1 = new FolderBrowserDialog();
+            browseDirectoryButton = new Button();
+            outputDirectoryTextBox = new TextBox();
+            Generate = new Button();
+            linePerSlideNumber = new NumericUpDown();
+            VersionLabel = new Label();
+            autoTranslateCheckBox = new CheckBox();
+            lineBreaksBetweenTranslationNumber = new NumericUpDown();
+            label7 = new Label();
+            bracketBetweenTranslationCheckBox = new CheckBox();
+            progressBar1 = new ProgressBar();
+            ((System.ComponentModel.ISupportInitialize)linePerSlideNumber).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lineBreaksBetweenTranslationNumber).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(17, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Song Title*";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(17, 71);
+            label1.Name = "label1";
+            label1.Size = new Size(111, 25);
+            label1.TabIndex = 0;
+            label1.Text = "Song Title*";
             // 
             // songTitleTextBox
             // 
-            this.songTitleTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.songTitleTextBox.Location = new System.Drawing.Point(134, 66);
-            this.songTitleTextBox.Name = "songTitleTextBox";
-            this.songTitleTextBox.Size = new System.Drawing.Size(495, 29);
-            this.songTitleTextBox.TabIndex = 1;
+            songTitleTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            songTitleTextBox.Location = new Point(134, 66);
+            songTitleTextBox.Name = "songTitleTextBox";
+            songTitleTextBox.Size = new Size(495, 29);
+            songTitleTextBox.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(17, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(254, 32);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "OpenLP File Generator";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(17, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(254, 32);
+            label2.TabIndex = 2;
+            label2.Text = "OpenLP File Generator";
             // 
             // lyricsTextBox
             // 
-            this.lyricsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lyricsTextBox.Location = new System.Drawing.Point(23, 152);
-            this.lyricsTextBox.Multiline = true;
-            this.lyricsTextBox.Name = "lyricsTextBox";
-            this.lyricsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.lyricsTextBox.Size = new System.Drawing.Size(606, 397);
-            this.lyricsTextBox.TabIndex = 3;
+            lyricsTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            lyricsTextBox.Location = new Point(23, 152);
+            lyricsTextBox.Multiline = true;
+            lyricsTextBox.Name = "lyricsTextBox";
+            lyricsTextBox.ScrollBars = ScrollBars.Both;
+            lyricsTextBox.Size = new Size(606, 372);
+            lyricsTextBox.TabIndex = 3;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(17, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 21);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Lyrics";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(17, 119);
+            label3.Name = "label3";
+            label3.Size = new Size(52, 21);
+            label3.TabIndex = 4;
+            label3.Text = "Lyrics";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(651, 252);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(223, 17);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Max. lines per slide (excl. translation)";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(651, 252);
+            label4.Name = "label4";
+            label4.Size = new Size(223, 17);
+            label4.TabIndex = 5;
+            label4.Text = "Max. lines per slide (excl. translation)";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(646, 152);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 17);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Output Directory";
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(646, 152);
+            label5.Name = "label5";
+            label5.Size = new Size(105, 17);
+            label5.TabIndex = 6;
+            label5.Text = "Output Directory";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(646, 119);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 21);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Settings";
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(646, 119);
+            label6.Name = "label6";
+            label6.Size = new Size(72, 21);
+            label6.TabIndex = 7;
+            label6.Text = "Settings";
             // 
             // browseDirectoryButton
             // 
-            this.browseDirectoryButton.Location = new System.Drawing.Point(984, 190);
-            this.browseDirectoryButton.Name = "browseDirectoryButton";
-            this.browseDirectoryButton.Size = new System.Drawing.Size(36, 23);
-            this.browseDirectoryButton.TabIndex = 8;
-            this.browseDirectoryButton.Text = ". . .";
-            this.browseDirectoryButton.UseVisualStyleBackColor = true;
-            this.browseDirectoryButton.Click += new System.EventHandler(this.browseDirectoryButton_Click);
+            browseDirectoryButton.Location = new Point(984, 190);
+            browseDirectoryButton.Name = "browseDirectoryButton";
+            browseDirectoryButton.Size = new Size(36, 23);
+            browseDirectoryButton.TabIndex = 8;
+            browseDirectoryButton.Text = ". . .";
+            browseDirectoryButton.UseVisualStyleBackColor = true;
+            browseDirectoryButton.Click += browseDirectoryButton_Click;
             // 
             // outputDirectoryTextBox
             // 
-            this.outputDirectoryTextBox.Location = new System.Drawing.Point(651, 190);
-            this.outputDirectoryTextBox.Name = "outputDirectoryTextBox";
-            this.outputDirectoryTextBox.Size = new System.Drawing.Size(321, 23);
-            this.outputDirectoryTextBox.TabIndex = 9;
+            outputDirectoryTextBox.Location = new Point(651, 190);
+            outputDirectoryTextBox.Name = "outputDirectoryTextBox";
+            outputDirectoryTextBox.Size = new Size(321, 23);
+            outputDirectoryTextBox.TabIndex = 9;
             // 
             // Generate
             // 
-            this.Generate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Generate.Location = new System.Drawing.Point(651, 416);
-            this.Generate.Name = "Generate";
-            this.Generate.Size = new System.Drawing.Size(369, 74);
-            this.Generate.TabIndex = 11;
-            this.Generate.Text = "Generate!";
-            this.Generate.UseVisualStyleBackColor = true;
-            this.Generate.Click += new System.EventHandler(this.Generate_Click);
+            Generate.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            Generate.Location = new Point(651, 389);
+            Generate.Name = "Generate";
+            Generate.Size = new Size(369, 74);
+            Generate.TabIndex = 11;
+            Generate.Text = "Generate!";
+            Generate.UseVisualStyleBackColor = true;
+            Generate.Click += Generate_Click;
             // 
             // linePerSlideNumber
             // 
-            this.linePerSlideNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linePerSlideNumber.Location = new System.Drawing.Point(880, 250);
-            this.linePerSlideNumber.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.linePerSlideNumber.Name = "linePerSlideNumber";
-            this.linePerSlideNumber.Size = new System.Drawing.Size(50, 25);
-            this.linePerSlideNumber.TabIndex = 12;
-            this.linePerSlideNumber.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
+            linePerSlideNumber.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            linePerSlideNumber.Location = new Point(880, 250);
+            linePerSlideNumber.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            linePerSlideNumber.Name = "linePerSlideNumber";
+            linePerSlideNumber.Size = new Size(50, 25);
+            linePerSlideNumber.TabIndex = 12;
+            linePerSlideNumber.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // VersionLabel
             // 
-            this.VersionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.VersionLabel.AutoSize = true;
-            this.VersionLabel.Location = new System.Drawing.Point(984, 534);
-            this.VersionLabel.Name = "VersionLabel";
-            this.VersionLabel.Size = new System.Drawing.Size(45, 15);
-            this.VersionLabel.TabIndex = 13;
-            this.VersionLabel.Text = "Version";
+            VersionLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            VersionLabel.AutoSize = true;
+            VersionLabel.Location = new Point(984, 534);
+            VersionLabel.Name = "VersionLabel";
+            VersionLabel.Size = new Size(45, 15);
+            VersionLabel.TabIndex = 13;
+            VersionLabel.Text = "Version";
             // 
             // autoTranslateCheckBox
             // 
-            this.autoTranslateCheckBox.AutoSize = true;
-            this.autoTranslateCheckBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.autoTranslateCheckBox.Location = new System.Drawing.Point(654, 308);
-            this.autoTranslateCheckBox.Name = "autoTranslateCheckBox";
-            this.autoTranslateCheckBox.Size = new System.Drawing.Size(347, 21);
-            this.autoTranslateCheckBox.TabIndex = 14;
-            this.autoTranslateCheckBox.Text = "automatically translate to English (by Google Translate)";
-            this.autoTranslateCheckBox.UseVisualStyleBackColor = true;
+            autoTranslateCheckBox.AutoSize = true;
+            autoTranslateCheckBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            autoTranslateCheckBox.Location = new Point(654, 308);
+            autoTranslateCheckBox.Name = "autoTranslateCheckBox";
+            autoTranslateCheckBox.Size = new Size(337, 21);
+            autoTranslateCheckBox.TabIndex = 14;
+            autoTranslateCheckBox.Text = "Translate to English/Indonesian (by Google Translate)";
+            autoTranslateCheckBox.UseVisualStyleBackColor = true;
             // 
             // lineBreaksBetweenTranslationNumber
             // 
-            this.lineBreaksBetweenTranslationNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lineBreaksBetweenTranslationNumber.Location = new System.Drawing.Point(849, 340);
-            this.lineBreaksBetweenTranslationNumber.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.lineBreaksBetweenTranslationNumber.Name = "lineBreaksBetweenTranslationNumber";
-            this.lineBreaksBetweenTranslationNumber.Size = new System.Drawing.Size(50, 25);
-            this.lineBreaksBetweenTranslationNumber.TabIndex = 15;
-            this.lineBreaksBetweenTranslationNumber.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            lineBreaksBetweenTranslationNumber.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lineBreaksBetweenTranslationNumber.Location = new Point(849, 340);
+            lineBreaksBetweenTranslationNumber.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            lineBreaksBetweenTranslationNumber.Name = "lineBreaksBetweenTranslationNumber";
+            lineBreaksBetweenTranslationNumber.Size = new Size(50, 25);
+            lineBreaksBetweenTranslationNumber.TabIndex = 15;
+            lineBreaksBetweenTranslationNumber.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(651, 342);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(192, 17);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Line breaks between translation";
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(651, 342);
+            label7.Name = "label7";
+            label7.Size = new Size(192, 17);
+            label7.TabIndex = 16;
+            label7.Text = "Line breaks between translation";
             // 
             // bracketBetweenTranslationCheckBox
             // 
-            this.bracketBetweenTranslationCheckBox.AutoSize = true;
-            this.bracketBetweenTranslationCheckBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.bracketBetweenTranslationCheckBox.Location = new System.Drawing.Point(654, 281);
-            this.bracketBetweenTranslationCheckBox.Name = "bracketBetweenTranslationCheckBox";
-            this.bracketBetweenTranslationCheckBox.Size = new System.Drawing.Size(215, 21);
-            this.bracketBetweenTranslationCheckBox.TabIndex = 17;
-            this.bracketBetweenTranslationCheckBox.Text = "add bracket between translation";
-            this.bracketBetweenTranslationCheckBox.UseVisualStyleBackColor = true;
+            bracketBetweenTranslationCheckBox.AutoSize = true;
+            bracketBetweenTranslationCheckBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            bracketBetweenTranslationCheckBox.Location = new Point(654, 281);
+            bracketBetweenTranslationCheckBox.Name = "bracketBetweenTranslationCheckBox";
+            bracketBetweenTranslationCheckBox.Size = new Size(216, 21);
+            bracketBetweenTranslationCheckBox.TabIndex = 17;
+            bracketBetweenTranslationCheckBox.Text = "Add bracket between translation";
+            bracketBetweenTranslationCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // progressBar1
+            // 
+            progressBar1.Enabled = false;
+            progressBar1.Location = new Point(651, 480);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(369, 23);
+            progressBar1.TabIndex = 18;
+            progressBar1.Visible = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 561);
-            this.Controls.Add(this.bracketBetweenTranslationCheckBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.lineBreaksBetweenTranslationNumber);
-            this.Controls.Add(this.autoTranslateCheckBox);
-            this.Controls.Add(this.VersionLabel);
-            this.Controls.Add(this.linePerSlideNumber);
-            this.Controls.Add(this.Generate);
-            this.Controls.Add(this.outputDirectoryTextBox);
-            this.Controls.Add(this.browseDirectoryButton);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lyricsTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.songTitleTextBox);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "OpenLP File Generator";
-            ((System.ComponentModel.ISupportInitialize)(this.linePerSlideNumber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lineBreaksBetweenTranslationNumber)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1034, 561);
+            Controls.Add(progressBar1);
+            Controls.Add(bracketBetweenTranslationCheckBox);
+            Controls.Add(label7);
+            Controls.Add(lineBreaksBetweenTranslationNumber);
+            Controls.Add(autoTranslateCheckBox);
+            Controls.Add(VersionLabel);
+            Controls.Add(linePerSlideNumber);
+            Controls.Add(Generate);
+            Controls.Add(outputDirectoryTextBox);
+            Controls.Add(browseDirectoryButton);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(lyricsTextBox);
+            Controls.Add(label2);
+            Controls.Add(songTitleTextBox);
+            Controls.Add(label1);
+            Name = "Form1";
+            Text = "OpenLP File Generator";
+            ((System.ComponentModel.ISupportInitialize)linePerSlideNumber).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lineBreaksBetweenTranslationNumber).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -287,5 +280,6 @@
         private NumericUpDown lineBreaksBetweenTranslationNumber;
         private Label label7;
         private CheckBox bracketBetweenTranslationCheckBox;
+        private ProgressBar progressBar1;
     }
 }

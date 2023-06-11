@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
+﻿using Google.Cloud.Translation.V2;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace OpenLPFileGenerator
 {
@@ -21,25 +15,27 @@ namespace OpenLPFileGenerator
         private readonly string SkipPattern = @"^\[skip\]";
         private readonly string SlideNameOverridePattern = @"^\[:\w*.*\]";
 
-        private string lyrics;
-        private string outputDirectory;
-        private string title;
-        private int maxLines;
-        private bool autoTranslate;
-        private bool bracketBetweenTranslation;
-        private int lineBreaksBetweenTranslation;
+        private string _lyrics;
+        private string _outputDirectory;
+        private string _title;
+        private int _maxLines;
+        private bool _autoTranslate;
+        private bool _bracketBetweenTranslation;
+        private int _lineBreaksBetweenTranslation;
 
         private Translator translator;
+        private ProgressManager _progressManager;
 
-        public Generator(string lyrics, Parameters parameters)
+        public Generator(string lyrics, Parameters parameters, ProgressManager progressManager)
         {
-            this.lyrics = lyrics;
-            outputDirectory = parameters.OutputDirectory;
-            title = parameters.Title;
-            maxLines = parameters.MaxLines;
-            autoTranslate = parameters.AutoTranslate;
-            bracketBetweenTranslation = parameters.BracketBetweenTranslation;
-            lineBreaksBetweenTranslation = parameters.LineBreaksBetweenTranslation;
+            _lyrics = lyrics;
+            _outputDirectory = parameters.OutputDirectory;
+            _title = parameters.Title;
+            _maxLines = parameters.MaxLines;
+            _autoTranslate = parameters.AutoTranslate;
+            _bracketBetweenTranslation = parameters.BracketBetweenTranslation;
+            _lineBreaksBetweenTranslation = parameters.LineBreaksBetweenTranslation;
+            _progressManager = progressManager;
 
             translator = new Translator();
         }
@@ -48,11 +44,16 @@ namespace OpenLPFileGenerator
         {
             try
             {
+                // start the progress bar
+                _progressManager.Start();
+
                 string xml = XMLTag + Environment.NewLine + GenerateSongTag();
-                using (StreamWriter sw = new StreamWriter(Path.Combine(outputDirectory, title + ".xml")))
+                using (StreamWriter sw = new StreamWriter(Path.Combine(_outputDirectory, _title + ".xml")))
                 {
                     sw.WriteLine(xml);
                 }
+
+                _progressManager.Complete();
             }
             catch (Exception e)
             {
@@ -76,10 +77,13 @@ namespace OpenLPFileGenerator
 
         public string GeneratePropertiesTag()
         {
+            // progress +10%
+            _progressManager.IncreaseValue(10);
+
             return @"<properties>
                 <titles>
                 <title>" +
-                title +
+                _title +
                 @"</title>
                 </titles>
                 </properties>";
@@ -94,7 +98,7 @@ namespace OpenLPFileGenerator
             int lineCounter = 0;
             bool openTag = false;
 
-            string[] lines = lyrics.Split(Environment.NewLine);
+            string[] lines = _lyrics.Split(Environment.NewLine);
             foreach (string line in lines)
             {
                 if (string.IsNullOrWhiteSpace(line))
@@ -131,7 +135,7 @@ namespace OpenLPFileGenerator
                     continue;
                 }
 
-                if (lineCounter >= maxLines)
+                if (lineCounter >= _maxLines)
                 {
                     if (openTag)
                     {
@@ -150,6 +154,9 @@ namespace OpenLPFileGenerator
 
                     AddWords(line, ref text, ref lineCounter);
                 }
+
+                // progress +percent/80%
+                _progressManager.IncreaseValue(80D / lines.Length);
             }
 
             if (openTag)
@@ -176,35 +183,46 @@ namespace OpenLPFileGenerator
             {
                 text += words + Environment.NewLine;
 
-                if (autoTranslate)
+                if (_autoTranslate)
                 {
-                    var translated = translator.Translate(words).Result;
+                    string fromLanguage = LanguageCodes.Indonesian;
+                    string toLanguage = LanguageCodes.English;
+
+                    string textLanguage = translator.DetectLanguage(words).Result;
+
+                    if (textLanguage != null && textLanguage.Equals(toLanguage))
+                    {
+                        toLanguage = fromLanguage;
+                        fromLanguage = textLanguage;
+                    }
+
+                    var translated = translator.Translate(words, fromLanguage, toLanguage).Result;
 
                     if (translated == null)
                     {
                         throw new Exception("Something wrong with translation API.");
                     }
 
-                    for (int i = 0; i < lineBreaksBetweenTranslation; i++)
+                    for (int i = 0; i < _lineBreaksBetweenTranslation; i++)
                     {
                         text += Environment.NewLine;
                     }
 
-                    if (bracketBetweenTranslation)
+                    if (_bracketBetweenTranslation)
                     {
                         text += "(";
                     }
 
                     text += translated;
 
-                    if (bracketBetweenTranslation)
+                    if (_bracketBetweenTranslation)
                     {
                         text += ")";
                     }
 
                     text += Environment.NewLine;
 
-                    for (int i = 0; i < lineBreaksBetweenTranslation; i++)
+                    for (int i = 0; i < _lineBreaksBetweenTranslation; i++)
                     {
                         text += Environment.NewLine;
                     }

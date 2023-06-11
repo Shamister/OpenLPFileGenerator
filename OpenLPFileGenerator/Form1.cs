@@ -47,23 +47,23 @@ namespace OpenLPFileGenerator
                 parameters.BracketBetweenTranslation = bracketBetweenTranslationCheckBox.Checked;
                 parameters.LineBreaksBetweenTranslation = Convert.ToInt32(lineBreaksBetweenTranslationNumber.Value);
 
-                Generator openLPGenerator = new Generator(lyricsTextBox.Text, parameters);
+                ProgressManager manager = new ProgressManager(progressBar1);
 
-                var generationTask = Task.Run(() => {
-                    MessageBox.Show("Generating the file...");
+                Generator openLPGenerator = new Generator(lyricsTextBox.Text, parameters, manager);
 
-                    var isGenerated = openLPGenerator.GenerateOpenLPXMLFile();
-
-                    if (isGenerated)
-                    {
-                        MessageBox.Show("The file has been generated.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Something wrong when generating the file.");
-                    }
+                var isGenerated = await Task.Run(() =>
+                {
+                    return openLPGenerator.GenerateOpenLPXMLFile();
                 });
-                generationTask.Wait();
+
+                if (isGenerated)
+                {
+                    MessageBox.Show("The file has been generated.");
+                }
+                else
+                {
+                    MessageBox.Show("Something wrong when generating the file.");
+                };
             }
         }
 
